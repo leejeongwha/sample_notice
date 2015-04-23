@@ -7,7 +7,7 @@
 <title>Login</title>
 </head>
 <body>
-<form name="frmUser" action="/notice/login/submit" method="post">
+<form name="frmUser" action="/login/submit" method="post">
 	ID : <input name="id">
 	<br>
 	PASSWD : <input name="passwd">

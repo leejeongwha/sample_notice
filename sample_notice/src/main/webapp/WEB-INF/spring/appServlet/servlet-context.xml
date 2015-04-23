@@ -25,7 +25,7 @@
 	
 	<interceptors>
         <interceptor> 
-           <mapping path="/*"/>
+           <mapping path="/**"/>
 			<beans:bean class="com.sample.notice.interceptor.LoginCheckInterceptor"></beans:bean>
         </interceptor>
     </interceptors>
