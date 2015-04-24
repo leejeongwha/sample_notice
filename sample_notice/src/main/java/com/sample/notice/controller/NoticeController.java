@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.util.WebUtils;
 
 import com.sample.notice.annotation.AuthCheck;
@@ -21,8 +22,7 @@ import com.sample.notice.model.Paging;
 @Controller
 @RequestMapping(value = "notice")
 public class NoticeController {
-	private static final Logger logger = LoggerFactory
-			.getLogger(NoticeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(NoticeController.class);
 
 	@Autowired
 	private NoticeDAO noticeDAO;
@@ -32,7 +32,7 @@ public class NoticeController {
 		return "notice/detail";
 	}
 
-	@RequestMapping({ "", "/", "list" })
+	@RequestMapping({"", "/", "list"})
 	public String list(Model model, Paging paging) {
 
 		List<Notice> noticeList = noticeDAO.getNoticeList(paging);
@@ -53,10 +53,10 @@ public class NoticeController {
 		return "notice/detail";
 	}
 
-	@RequestMapping(value = "save")
+	@RequestMapping(value = "save", method = RequestMethod.POST)
 	@AuthCheck
 	public String save(HttpServletRequest request, Notice notice) {
-		String userId = (String) WebUtils.getSessionAttribute(request, "admin");
+		String userId = (String)WebUtils.getSessionAttribute(request, "admin");
 		notice.setUserId(userId);
 		noticeDAO.addNotice(notice);
 		return "redirect:/notice/list";
