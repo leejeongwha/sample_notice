@@ -7,24 +7,24 @@ Spring Framework를 사용하여 관리자만 게시 가능한 공지사항 구�
 	
 2. HSQL DB사용 및 hibernate 사용을 위한 설정 추가
 	A. src/main/resource 하위에 create_table.sql 생성
-	B. servlet-context 설정에 인터셉터 추가
+	B. servlet-context 설정에 인터셉터 추가(인터셉터 대신 AOP로 구현해도 무방함)
 	C. root-context-datasource.xml 추가하고 datasource 관련 설정 추가
 	D. pom.xml에 DB 및 JSON 관련 dependency 추가
 	
 3. 기능 요구사항
 	A. 공지사항 리스트 보기
-	B. 공지사항 상세 보기
+	B. 제목 클릭 시 공지사항 상세 보기
 	C. 공지사항 상세에서 저장버튼 클릭시에 세션 참조하여 로그인 되어있지 않을 경우 로그인 페이지로 리다이렉트
 	D. 로그인이 성공하였을 경우 세션에 어드민 ID 저장 후 공지사항 리스트로 이동
 	E. 세션에 어드민ID가 존재할 경우 공지사항 저장 및 수정이 가능함
 	E. 공지사항 일부 보기 가능(get방식으로 page 및 count 설정 가능)
 	F. 공지사항 일부 및 세부사항에 대해서 JSON 형태로 출력 가능
-	G. AuthCheck 커스텀 어노테이션이 선언된 컨트롤러 메서드는 로그인여부 확인 후 
-	로그인 되어있으면 공지사항 목록으로, 미 로그인 시에는 로그인 페이지로 리다이렉트
+	G. AuthCheck 커스텀 어노테이션이 선언된 컨트롤러 메서드는 메서드가 수행되기 전 로그인여부 확인 후 
+	로그인 되어있으면 메서드 수행, 미 로그인 시에는 로그인 페이지로 리다이렉트
 	
 4. URL 리스트
 	A. /notice/list : 공지사항 리스트 보기(get방식으로 page 및 count 설정 가능)
-	B. /notice/{seq} : 해당 seq의 공지사항 상세 보기
+	B. /notice/{seq} : 해당 sequence의 공지사항 상세 보기(수정 가능)
 	C. /notice/form : 공지사항 신규등록
 	D. /notice/save : 공지사항 제목 및 상세 저장
 	E. /login/form : 로그인 폼
