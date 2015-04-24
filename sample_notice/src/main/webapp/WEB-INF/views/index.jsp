@@ -1,3 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>INDEX</title>
+</head>
+<body>
+<pre>
 Spring Framework를 사용하여 관리자만 게시 가능한 공지사항 구현하기
 1. 신규 프로젝트 생성
 	A. File > New > Spring Project를 선택하여 New Spring Project 팝업 띄우기
@@ -44,3 +53,6 @@ Spring Framework를 사용하여 관리자만 게시 가능한 공지사항 구�
 	B. LocaleChangeInterceptor 사용하여 locale을 ko 및 en으로 설정하여 관련 message 프로퍼티 파일에서 메세지 읽어오도록 수정
 	C. 현재 정해진 admin만 글쓰기가 가능한 상태이나 회원가입 받아서 내가 쓴글에 대해서 삽입, 수정, 삭제 가능하도록 수정
 	D. Bootstrap 사용하여 화면을 반응형으로 구성
+</pre>
+</body>
+</html>

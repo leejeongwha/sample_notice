@@ -22,11 +22,11 @@
 			</colgroup>
 			<tr>
 				<td><spring:message code='notice.title'/> :</td>
-				<td><input type="text" name="title" maxlength='50' value="${notice.title}" /></td>
+				<td><input type="text" name="title" maxlength='80' size='80' value="${notice.title}" /></td>
 			</tr>
 			<tr>
 				<td><spring:message code='notice.content'/> :</td>
-				<td><textarea name="content" cols="30" rows="10">${notice.content}</textarea></td>
+				<td><textarea name="content" cols="80" rows="10">${notice.content}</textarea></td>
 			</tr>
 		</table>
 		
