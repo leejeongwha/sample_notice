@@ -3,6 +3,8 @@ package com.sample.notice.interceptor;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -10,30 +12,25 @@ import org.springframework.web.servlet.ModelAndView;
 import com.sample.notice.annotation.AuthCheck;
 
 public class LoginCheckInterceptor implements HandlerInterceptor {
+	private static final Logger logger = LoggerFactory.getLogger(LoginCheckInterceptor.class);
 
 	@Override
-	public void afterCompletion(HttpServletRequest arg0,
-			HttpServletResponse arg1, Object arg2, Exception arg3)
-			throws Exception {
+	public void afterCompletion(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, Exception arg3) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1,
-			Object arg2, ModelAndView arg3) throws Exception {
+	public void postHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2, ModelAndView arg3) throws Exception {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1,
-			Object arg2) throws Exception {
+	public boolean preHandle(HttpServletRequest arg0, HttpServletResponse arg1, Object arg2) throws Exception {
 		try {
-			System.out.println("session check : "
-					+ arg0.getSession().getAttribute("admin"));
-			AuthCheck authCheck = ((HandlerMethod) arg2)
-					.getMethodAnnotation(AuthCheck.class);
+			logger.info("session check : " + arg0.getSession().getAttribute("admin"));
+			AuthCheck authCheck = ((HandlerMethod)arg2).getMethodAnnotation(AuthCheck.class);
 
 			if (authCheck == null) {
 				return true;
