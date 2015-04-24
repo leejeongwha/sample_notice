@@ -10,11 +10,11 @@
 <body>
 <h1><spring:message code='notice.head'/></h1>
 <div>
-	<table border="1" width="50%">
+	<table border="1" width="40%">
 		<colgroup>
 			<col width="10%">
-			<col width="30%">
-			<col width="60%">
+			<col width="70%">
+			<col width="20%">
 		</colgroup>
 		<tr>
 			<th><spring:message code='notice.seq'/></th>
